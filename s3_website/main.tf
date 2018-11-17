@@ -1,13 +1,3 @@
-variable "domain" {}
-
-variable "www_domain" {
-  default = ""
-}
-
-variable "route53_zone_id" {
-  default = ""
-}
-
 resource "aws_s3_bucket" "main" {
   bucket = "${var.domain}"
 
