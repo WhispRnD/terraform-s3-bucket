@@ -1,5 +1,23 @@
 resource "aws_s3_bucket" "bucket" {
   bucket = "${var.name}"
+
+  cors_rule {
+    allowed_headers = [
+      "Authorization",
+    ]
+
+    allowed_methods = [
+      "GET",
+      "HEAD",
+    ]
+
+    allowed_origins = [
+      "*",
+    ]
+
+    max_age_seconds = 3000
+  }
+
 }
 
 resource "aws_s3_bucket_policy" "bucket-policy" {
